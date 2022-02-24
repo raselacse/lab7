@@ -13,7 +13,7 @@ include("dbConnection.php");
                 <h3><?php echo $user['product_name'];?></h3>
                 <p><?php echo "$". $user['product_price'];?></p>
                 <p><?php echo $user['category'];?></p>
-                <a href="#">add to cart</a>
+                <button href="#">add to cart</button>
             </div>
         </div>
     <?php } ?>

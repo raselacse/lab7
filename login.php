@@ -13,18 +13,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = mysqli_query($dbConnection, $select_query);
         
         $user_variation = mysqli_fetch_array($query);
-        
-        if($user_variation["user_type"] == "admin") {
-            $_SESSION['userInfo'] = true;
-            header('Location: admin.php');
-            $_SESSION['login_success'] = "Sign in successfully.";
-        } elseif($user_variation["user_type"] == "user") {
-            $_SESSION['userInfo'] = true;
-            header('Location: index.php');
-            $_SESSION['login_success'] = "Sign in successfully.";
+
+        if(mysqli_num_rows($query)) {
+            $_SESSION['user_info'] = mysqli_fetch_assoc($query);
+            if($user_variation["user_type"] == "admin") {
+                $_SESSION['userInfo'] = true;
+                header('Location: admin.php');
+                $_SESSION['login_success'] = "Sign in successfully.";
+            }if($user_variation["user_type"] == "user") {
+                $_SESSION['userInfo'] = true;
+                header('Location: index.php');
+                $_SESSION['login_success'] = "Sign in successfully.";
+            }
         } else {
             $_SESSION['login_err'] = "Something went wrong. Please try again!";;
         }
+        // if($user_variation["user_type"] == "admin") {
+        //     $_SESSION['userInfo'] = true;
+        //     header('Location: admin.php');
+        //     $_SESSION['login_success'] = "Sign in successfully.";
+        // } elseif($user_variation["user_type"] == "user") {
+        //     $_SESSION['userInfo'] = true;
+        //     header('Location: index.php');
+        //     $_SESSION['login_success'] = "Sign in successfully.";
+        // } else {
+        //     $_SESSION['login_err'] = "Something went wrong. Please try again!";;
+        // }
         
     }
 }
