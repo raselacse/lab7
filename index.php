@@ -1,4 +1,4 @@
-<?php include_once "dbConnection.php" ?>
+<?php include "dbConnection.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
 <body>
     <?php include "navigation.php" ?>
     <?php include "product.php" ?>    
+    <?php include "category.php" ?>    
 </body>
 </html>
 <?php 

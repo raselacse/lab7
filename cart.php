@@ -32,18 +32,37 @@
 </head>
 <body>
     <?php include "navigation.php" ?>
-    <h3>My Products</h3>
+    <h3 style="margin: 0px; float: left; padding-right: 35px">Invoice No.</h3>
+    <h3 style="margin: 0px">Date</h3>
+    <span style="padding-right: 50px">000003410</span>
+    <span><?php echo date('d-m-y h:i:s') ?></span>
+    
+    
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Vat</th>
+            <th>Total</th>
+        </tr>
+    <?php 
+        $sum = 0;
+        $total = 0;
+    ?>
     <?php while($user = mysqli_fetch_assoc($query)) { ?>
-        <div style="width: 5rem; border: 1px solid black; padding: 10px; margin-right: 10px; float: left">
-            <form action="" method="post">
-                <h3><?php echo $user['product_name'];?></h3>
-                <p><?php echo "$". ($user['product_price'])?></p>
-                <p><?php echo $user['category'];?></p>
-                <input type="hidden" name="product_id" value="<?php echo $user['product_id'];?>">
-                <input type="submit" value="remove" name="remove">
-            </form>
-        </div>
+        <tr>
+            <td><?php echo $user['product_name'];?></td>
+            <td><?php echo $user['category'];?></td>
+            <td><?php echo "$". ($user['product_price'])?></td>
+            <td><?php echo "$". ($user['product_price']*.05)?></td>
+            <td><?php echo "$" . $sum  =  ($user['product_price']) + ($user['product_price'])*.05?></td>
+            <?php $total = $total + $sum ?>
+        </tr>
     <?php } ?>
+    </table>
+    <hr style="width: 250px; margin-left: 0px">
+    <span style="margin-left: 165px"><?php echo 'Total $'. $total ?></span>
 </body>
 </html>
 <?php 

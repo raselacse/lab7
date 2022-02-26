@@ -8,5 +8,19 @@
 </head>
 <body>
     <h3>category</h3>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>Item</td>
+            <td>Qty</td>
+            <td>Price</td>
+            <td>Total</td>
+        </tr>
+    </table>
 </body>
 </html>

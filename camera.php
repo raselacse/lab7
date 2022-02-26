@@ -1,8 +1,6 @@
 <?php 
 include("dbConnection.php");
-
     $select_query = "SELECT * FROM `product` WHERE `category` = 'camera'";
-
     $query = mysqli_query($dbConnection, $select_query);
 
 ?>
